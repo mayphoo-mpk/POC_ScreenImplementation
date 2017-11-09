@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/left_menu_attractions"
+            android:checked="true"
+            android:icon="@drawable/ic_list_24dp"
+            android:title="Now On Cinema"/>
+
+        <item
+            android:id="@+id/left_menu_food_places"
+            android:icon="@drawable/ic_list_24dp"
+            android:title="Upcoming"/>
+
+        <item
+            android:id="@+id/left_menu_hotels"
+            android:icon="@drawable/ic_list_24dp"
+            android:title="Most Popular"/>
+
+    </group>
+
+</menu>
