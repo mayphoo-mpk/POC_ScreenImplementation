@@ -7,6 +7,7 @@ import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -25,7 +26,7 @@ import mayphoo.mpk.poc_screenimplementation.fragments.MovieListFragment;
  * Created by User on 11/9/2017.
  */
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     @BindView(R.id.drawer_layout)
     DrawerLayout drawerLayout;
@@ -65,8 +66,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        TabLayout.Tab firstTab = tabLayout.newTab();
-        firstTab.setText("NOW ON CINEMA");
+        /*TabLayout.Tab firstTab = tabLayout.newTab();
+        firstTab.setText("NOW ON CINEMA");*/
 
         TabLayout.Tab secondTab = tabLayout.newTab();
         secondTab.setText("UPCOMING");
@@ -74,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         TabLayout.Tab thirdTab = tabLayout.newTab();
         thirdTab.setText("MOST POPULAR");
 
-        tabLayout.addTab(firstTab);
+        tabLayout.addTab(tabLayout.newTab().setText("NOW ON CINEMA"));
         tabLayout.addTab(secondTab);
         tabLayout.addTab(thirdTab);
 
@@ -123,4 +124,20 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                drawerLayout.openDrawer(GravityCompat.START);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        item.setChecked(true);
+        drawerLayout.closeDrawers();
+        return true;
+    }
 }
