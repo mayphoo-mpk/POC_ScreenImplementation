@@ -1,11 +1,8 @@
 package mayphoo.mpk.poc_screenimplementation.viewholders;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -15,7 +12,6 @@ import butterknife.OnClick;
 import mayphoo.mpk.poc_screenimplementation.R;
 import mayphoo.mpk.poc_screenimplementation.data.vo.MovieVO;
 import mayphoo.mpk.poc_screenimplementation.delegates.MovieItemDelegate;
-import mayphoo.mpk.poc_screenimplementation.utils.AppConstants;
 
 /**
  * Created by User on 11/9/2017.
@@ -46,7 +42,7 @@ public class MovieViewHolder extends BaseViewHolder<MovieVO> {
         mMovie = movie;
 
         Glide.with(ivPoster.getContext())
-                .load(AppConstants.BASE_URL + movie.getPosterPath())
+                .load("https://image.tmdb.org/t/p/" + "original" + movie.getPosterPath())
                 .into(ivPoster);
 
         tvVoteAverage.setText(String.valueOf(movie.getVoteAverage()));
@@ -60,6 +56,6 @@ public class MovieViewHolder extends BaseViewHolder<MovieVO> {
 
     @Override
     public void onClick(View view) {
-
+        mDelegate.onTapMovie(mMovie);
     }
 }

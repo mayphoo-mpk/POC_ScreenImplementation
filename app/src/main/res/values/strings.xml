@@ -2,4 +2,25 @@
     <string name="app_name">POC_ScreenImplementation</string>
     <string name="action_settings">Settings</string>
     <string name="msg_generic_no_data">No Data to Display</string>
+    <string name="dummy_movie_short_description">It is a strange comment to make about a film set inside a prison,
+        but "The Shawshank Redemption" creates a warm hold on our feelings because it makes us a member of a family.
+        Many movies offer us vicarious experiences and quick, superficial emotions. "Shawshank" slows down and looks.
+        It uses the narrator's calm, observant voice to include us in the story of men who have formed a community behind bars.
+        It is deeper than most films; about continuity in a lifetime, based on friendship and hope.</string>
+    <string name="reviews"><u>Reviews</u></string>
+    <string name="dummy_movie_long_description">From Andy\'s arrival on the prison bus to the film\'s end, we see only how others see him - Red,
+        who becomes his best friend, Brooks the old librarian, the corrupt Warden Norton, guards and prisoners. Red is our surrogate.
+        He\'s the one we identify with, and the redemption, when it comes, is Red\'s.
+        We\'ve been shown by Andy\'s example that you have to keep true to yourself, not lose hope,
+        bide your time, set a quiet example and look for your chance.
+        I guess it comes down to a simple choice, really," he tells Red. Get busy livin' or get busy dyin'.
+        The key to the film\'s structure, I think, is that it\'s not about its hero,
+        but about our relationship with him - our curiosity, our pity, our admiration. If Andy had been the heroic center,
+        bravely enduring, the film would have been conventional, and less mysterious. But we wonder about this guy.
+        Did he really kill those two people? Why does he keep so much to himself?
+        Why can he amble through the prison yard like a free man on a stroll, when everyone else plods or sidles?
+        People like excitement at the movies, and titles that provide it do well.
+        Films about "redemption" are approached with great wariness; a lot of people are not thrilled by the prospect of a great film -
+        it sounds like work. But there's a hunger for messages of hope, and when a film offers one,
+        it's likely to have staying power even if it doesn't grab an immediate audience.</string>
 </resources>

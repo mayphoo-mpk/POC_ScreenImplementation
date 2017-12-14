@@ -8,9 +8,6 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.view.ViewPager;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-
-import java.io.StringBufferInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,7 +69,8 @@ public class MovieOverviewActivity extends BaseActivity {
         if(movie.getBackdropPath() != null){
             List<String> images = new ArrayList<>() ;
             images.add(movie.getBackdropPath());
-            movieImagesPagerAdapter.setImages(images);
+            //movieImagesPagerAdapter.setImages(images);
+            movieImagesPagerAdapter.setImage("https://image.tmdb.org/t/p/" + "original" + movie.getPosterPath());
         }
 
         collapsingToolbarLayout.setTitle(movie.getTitle());

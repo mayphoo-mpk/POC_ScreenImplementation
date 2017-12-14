@@ -63,4 +63,9 @@ public class MovieImagesPagerAdapter extends PagerAdapter {
         this.images = newsImages;
         notifyDataSetChanged();
     }
+
+    public void setImage(String newsImage){
+        this.images.add(newsImage);
+        notifyDataSetChanged();
+    }
 }

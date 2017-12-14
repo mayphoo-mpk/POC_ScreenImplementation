@@ -5,12 +5,13 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 import mayphoo.mpk.poc_screenimplementation.data.vo.MovieVO;
+import mayphoo.mpk.poc_screenimplementation.network.POCResponse;
 
 /**
  * Created by User on 12/7/2017.
  */
 
-public class GetMovieResponse {
+public class GetMovieResponse extends POCResponse {
 
     @SerializedName("code")
     private int code;

@@ -11,10 +11,10 @@ import java.util.List;
 public class MovieVO {
 
     @SerializedName("vote_count")
-    private int voteCount;
+    private long voteCount;
 
     @SerializedName("id")
-    private int id;
+    private long id;
 
     @SerializedName("video")
     private boolean video;
@@ -52,11 +52,11 @@ public class MovieVO {
     @SerializedName("release_date")
     private String releaseDate;
 
-    public int getVoteCount() {
+    public long getVoteCount() {
         return voteCount;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

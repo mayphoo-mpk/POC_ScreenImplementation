@@ -14,11 +14,10 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import mayphoo.mpk.poc_screenimplementation.R;
+import mayphoo.mpk.poc_screenimplementation.activities.MovieDetailActivity;
 import mayphoo.mpk.poc_screenimplementation.activities.MovieOverviewActivity;
 import mayphoo.mpk.poc_screenimplementation.adapters.MovieAdapter;
 import mayphoo.mpk.poc_screenimplementation.components.EmptyViewPod;
@@ -70,6 +69,7 @@ public class MovieListFragment extends Fragment implements MovieItemDelegate{
         });
 
         rvMovies.addOnScrollListener(mSmartScrollListener);
+
         return view;
     }
 
@@ -101,6 +101,11 @@ public class MovieListFragment extends Fragment implements MovieItemDelegate{
     public void onTapMovieOverview(MovieVO movie) {
         Intent intent = MovieOverviewActivity.newIntent(getContext(), movie);
         startActivity(intent);
+    }
 
+    @Override
+    public void onTapMovie(MovieVO movie) {
+        Intent intent = MovieDetailActivity.newIntent(getContext(), movie);
+        startActivity(intent);
     }
 }

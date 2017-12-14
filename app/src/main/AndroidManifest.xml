@@ -27,6 +27,11 @@
         <activity android:name=".activities.MovieOverviewActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+
+        <activity android:name=".activities.MovieDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
     </application>
 
 </manifest>

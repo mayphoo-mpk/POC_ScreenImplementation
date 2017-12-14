@@ -1,7 +1,5 @@
 package mayphoo.mpk.poc_screenimplementation.data.models;
 
-import android.text.TextUtils;
-
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;

@@ -9,4 +9,5 @@ import mayphoo.mpk.poc_screenimplementation.data.vo.MovieVO;
 public interface MovieItemDelegate {
 
     void onTapMovieOverview(MovieVO movie);
+    void onTapMovie(MovieVO movie);
 }

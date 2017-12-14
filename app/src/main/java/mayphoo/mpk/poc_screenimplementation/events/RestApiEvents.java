@@ -22,18 +22,6 @@ public class RestApiEvents {
         }
     }
 
-    public static class EmptyResponseEvent {
-        private String emptyMsg;
-
-        public EmptyResponseEvent(String emptyMsg){
-            this.emptyMsg = emptyMsg;
-        }
-
-        public String getEmptyMsg(){
-            return emptyMsg;
-        }
-    }
-
     public static class PopularMoviesDataLoadedEvent {
         private int loadedPageIndex;
         private List<MovieVO> loadedMovies;

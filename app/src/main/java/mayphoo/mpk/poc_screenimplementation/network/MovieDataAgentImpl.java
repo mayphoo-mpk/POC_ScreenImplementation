@@ -52,24 +52,16 @@ public class MovieDataAgentImpl implements MovieDataAgent {
     @Override
     public void loadPopularMovies(String accessToken, int pageNo) {
         Call<GetMovieResponse> loadPopularMoviesCall = movieAPI.loadPopularMovies(accessToken, pageNo);
-        loadPopularMoviesCall.enqueue(new Callback<GetMovieResponse>() {
+        loadPopularMoviesCall.enqueue(new POCCallback<GetMovieResponse>() {
             @Override
             public void onResponse(Call<GetMovieResponse> call, Response<GetMovieResponse> response) {
                 GetMovieResponse getMovieResponse = response.body();
                 if(getMovieResponse != null && getMovieResponse.getPopularMovies().size() > 0) {
                     RestApiEvents.PopularMoviesDataLoadedEvent popularMoviesDataLoadedEvent = new RestApiEvents.PopularMoviesDataLoadedEvent(getMovieResponse.getPageNo(), getMovieResponse.getPopularMovies());
                     EventBus.getDefault().post(popularMoviesDataLoadedEvent);
-                } else {
-                    RestApiEvents.EmptyResponseEvent emptyResponseEvent = new RestApiEvents.EmptyResponseEvent("No popular movies could be loaded for now. Please try again later.");
-                    EventBus.getDefault().post(emptyResponseEvent);
                 }
             }
 
-            @Override
-            public void onFailure(Call<GetMovieResponse> call, Throwable t) {
-                RestApiEvents.ErrorInvokingAPIEvent errorInvokingAPIEvent = new RestApiEvents.ErrorInvokingAPIEvent(t.getMessage());
-                EventBus.getDefault().post(errorInvokingAPIEvent);
-            }
         });
     }
 }

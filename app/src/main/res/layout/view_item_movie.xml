@@ -65,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:text="It"
                 android:textColor="@color/primary_text"
-                android:textSize="@dimen/text_regular_2x"/>
+                android:textSize="@dimen/text_regular_3x"/>
 
             <TextView
                 android:id="@+id/tv_type"
