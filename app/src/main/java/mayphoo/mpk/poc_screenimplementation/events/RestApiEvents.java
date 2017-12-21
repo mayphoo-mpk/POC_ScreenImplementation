@@ -1,5 +1,7 @@
 package mayphoo.mpk.poc_screenimplementation.events;
 
+import android.content.Context;
+
 import java.util.List;
 
 import mayphoo.mpk.poc_screenimplementation.data.vo.MovieVO;
@@ -25,10 +27,12 @@ public class RestApiEvents {
     public static class PopularMoviesDataLoadedEvent {
         private int loadedPageIndex;
         private List<MovieVO> loadedMovies;
+        private Context context;
 
-        public PopularMoviesDataLoadedEvent(int loadedPageIndex, List<MovieVO> loadedMovies) {
+        public PopularMoviesDataLoadedEvent(int loadedPageIndex, List<MovieVO> loadedMovies, Context context) {
             this.loadedPageIndex = loadedPageIndex;
             this.loadedMovies = loadedMovies;
+            this.context = context;
         }
 
         public int getLoadedPageIndex() {
@@ -39,6 +43,9 @@ public class RestApiEvents {
             return loadedMovies;
         }
 
+        public Context getContext() {
+            return context;
+        }
     }
 
 }

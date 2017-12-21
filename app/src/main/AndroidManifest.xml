@@ -32,6 +32,18 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
+        <receiver android:name=".receivers.InternetStateReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"></action>
+            </intent-filter>
+        </receiver>
+
+        <provider
+            android:authorities="mayphoo.mpk.poc_screenimplementation"
+            android:name=".data.persistence.MovieProvider"
+            android:exported="false"
+            android:syncable="true"/>
+
     </application>
 
 </manifest>

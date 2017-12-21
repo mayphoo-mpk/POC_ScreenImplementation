@@ -1,5 +1,7 @@
 package mayphoo.mpk.poc_screenimplementation.network;
 
+import android.content.Context;
+
 import com.google.gson.Gson;
 
 import org.greenrobot.eventbus.EventBus;
@@ -50,14 +52,14 @@ public class MovieDataAgentImpl implements MovieDataAgent {
     }
 
     @Override
-    public void loadPopularMovies(String accessToken, int pageNo) {
+    public void loadPopularMovies(String accessToken, int pageNo, final Context context) {
         Call<GetMovieResponse> loadPopularMoviesCall = movieAPI.loadPopularMovies(accessToken, pageNo);
         loadPopularMoviesCall.enqueue(new POCCallback<GetMovieResponse>() {
             @Override
             public void onResponse(Call<GetMovieResponse> call, Response<GetMovieResponse> response) {
                 GetMovieResponse getMovieResponse = response.body();
                 if(getMovieResponse != null && getMovieResponse.getPopularMovies().size() > 0) {
-                    RestApiEvents.PopularMoviesDataLoadedEvent popularMoviesDataLoadedEvent = new RestApiEvents.PopularMoviesDataLoadedEvent(getMovieResponse.getPageNo(), getMovieResponse.getPopularMovies());
+                    RestApiEvents.PopularMoviesDataLoadedEvent popularMoviesDataLoadedEvent = new RestApiEvents.PopularMoviesDataLoadedEvent(getMovieResponse.getPageNo(), getMovieResponse.getPopularMovies(), context);
                     EventBus.getDefault().post(popularMoviesDataLoadedEvent);
                 }
             }

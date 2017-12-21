@@ -94,20 +94,23 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 switch (tab.getPosition()){
                     case 0:
                         fragment = MovieListFragment.newInstance();
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.fl_movies, fragment)
+                                .commit();
                         break;
                     case 1:
-                        fragment = MovieListFragment.newInstance();
+                        //fragment = MovieListFragment.newInstance();
                         break;
                     case 2:
-                        fragment = MovieListFragment.newInstance();
+                        //fragment = MovieListFragment.newInstance();
                         break;
                     default:
                         break;
                 }
 
-                getSupportFragmentManager().beginTransaction()
+                /*getSupportFragmentManager().beginTransaction()
                         .replace(R.id.fl_movies, fragment)
-                        .commit();
+                        .commit();*/
 
             }
 
@@ -121,8 +124,6 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
             }
         });
-
-
 
     }
 

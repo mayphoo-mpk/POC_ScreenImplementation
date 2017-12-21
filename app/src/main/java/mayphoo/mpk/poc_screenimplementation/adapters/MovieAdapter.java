@@ -1,9 +1,11 @@
 package mayphoo.mpk.poc_screenimplementation.adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
+import mayphoo.mpk.poc_screenimplementation.POCMoviesApp;
 import mayphoo.mpk.poc_screenimplementation.R;
 import mayphoo.mpk.poc_screenimplementation.data.vo.MovieVO;
 import mayphoo.mpk.poc_screenimplementation.delegates.MovieItemDelegate;

@@ -113,7 +113,7 @@
                 <mayphoo.mpk.poc_screenimplementation.components.SmartRecyclerView
                     android:id="@+id/rv_trailer_movies"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
 
                 <include
                     android:id="@+id/vp_empty_trailer_movies"

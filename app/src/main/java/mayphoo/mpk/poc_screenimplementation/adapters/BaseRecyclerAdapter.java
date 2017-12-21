@@ -2,12 +2,14 @@ package mayphoo.mpk.poc_screenimplementation.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import mayphoo.mpk.poc_screenimplementation.POCMoviesApp;
 import mayphoo.mpk.poc_screenimplementation.viewholders.BaseViewHolder;
 
 /**
@@ -31,7 +33,13 @@ public abstract class BaseRecyclerAdapter<T extends BaseViewHolder, W> extends R
 
     @Override
     public int getItemCount() {
+        Log.d(POCMoviesApp.LOG_TAG, "movie count: " + mData.size());
         return mData.size();
+    }
+
+    public void setNewData(List<W> newData){
+        mData = newData;
+        notifyDataSetChanged();
     }
 
     public void appendNewData(List<W> movieData) {
