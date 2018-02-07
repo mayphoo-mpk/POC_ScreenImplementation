@@ -64,6 +64,6 @@ public class MovieDBHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + MovieContract.GenreIdsEntry.TABLE_NAME);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + MovieContract.PopularMovieEntry.TABLE_NAME);
 
-        //onCreate(sqLiteDatabase);
+        onCreate(sqLiteDatabase);
     }
 }

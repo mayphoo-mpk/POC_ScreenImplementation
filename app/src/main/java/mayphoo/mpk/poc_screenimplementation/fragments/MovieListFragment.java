@@ -68,7 +68,7 @@ public class MovieListFragment extends Fragment implements MovieItemDelegate, Lo
         View view = inflater.inflate(R.layout.fragment_movies_list, container, false);
         ButterKnife.bind(this, view);
 
-        MovieModel.getInstance().startLoadingPopularMovies(getContext());
+       /* MovieModel.getInstance().startLoadingPopularMovies(getContext());*/
 
         rvMovies.setEmptyView(vpEmptyMovies);
         rvMovies.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
@@ -120,17 +120,6 @@ public class MovieListFragment extends Fragment implements MovieItemDelegate, Lo
         EventBus.getDefault().unregister(this);
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onPopularMoviesDataLoaded(RestApiEvents.PopularMoviesDataLoadedEvent event){
-        /*moviesAdapter.appendNewData(event.getLoadedMovies());*/
-    }
-
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onErrorInvokingAPI(RestApiEvents.ErrorInvokingAPIEvent event){
-        Snackbar.make(rvMovies, event.getErrorMsg(), Snackbar.LENGTH_INDEFINITE).show();
-        swipeRefreshLayout.setRefreshing(false);
-    }
-
     @Override
     public void onTapMovieOverview(MovieVO movie) {
         Intent intent = MovieOverviewActivity.newIntent(getContext(), movie);
@@ -152,6 +141,7 @@ public class MovieListFragment extends Fragment implements MovieItemDelegate, Lo
                 null);
     }
 
+    //convert cursor object to object format
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         if(data != null && data.moveToFirst()) {
@@ -161,7 +151,8 @@ public class MovieListFragment extends Fragment implements MovieItemDelegate, Lo
                 MovieVO popularMovies = MovieVO.parseFromCursor(data);
                 popularMovieList.add(popularMovies);
                 i++;
-            } while (data.moveToFirst() && i < 10);
+            //} while (data.moveToNext() && i < 10);
+            } while (data.moveToNext());
 
             moviesAdapter.setNewData(popularMovieList);
             swipeRefreshLayout.setRefreshing(false);
@@ -173,4 +164,16 @@ public class MovieListFragment extends Fragment implements MovieItemDelegate, Lo
     public void onLoaderReset(Loader<Cursor> loader) {
 
     }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onPopularMoviesDataLoaded(RestApiEvents.PopularMoviesDataLoadedEvent event){
+        //moviesAdapter.appendNewData(event.getLoadedMovies());
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onErrorInvokingAPI(RestApiEvents.ErrorInvokingAPIEvent event){
+        Snackbar.make(rvMovies, event.getErrorMsg(), Snackbar.LENGTH_INDEFINITE).show();
+        swipeRefreshLayout.setRefreshing(false);
+    }
+
 }

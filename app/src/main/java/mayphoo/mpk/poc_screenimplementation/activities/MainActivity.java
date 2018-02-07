@@ -37,8 +37,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     @BindView(R.id.fl_movies)
     FrameLayout flMovies;
 
-    @BindView(R.id.tabLayout)
-    TabLayout tabLayout;
+/*    @BindView(R.id.tabLayout)
+    TabLayout tabLayout;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +69,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         /*TabLayout.Tab firstTab = tabLayout.newTab();
         firstTab.setText("NOW ON CINEMA");*/
 
-        TabLayout.Tab secondTab = tabLayout.newTab();
+        /*TabLayout.Tab secondTab = tabLayout.newTab();
         secondTab.setText("UPCOMING");
 
         TabLayout.Tab thirdTab = tabLayout.newTab();
@@ -108,9 +108,9 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                         break;
                 }
 
-                /*getSupportFragmentManager().beginTransaction()
+                *//*getSupportFragmentManager().beginTransaction()
                         .replace(R.id.fl_movies, fragment)
-                        .commit();*/
+                        .commit();*//*
 
             }
 
@@ -123,8 +123,13 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             public void onTabReselected(TabLayout.Tab tab) {
 
             }
-        });
+        });*/
 
+        Fragment fragment = null;
+        fragment = MovieListFragment.newInstance();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fl_movies, fragment)
+                .commit();
     }
 
     @Override

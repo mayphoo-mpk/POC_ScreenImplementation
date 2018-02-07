@@ -15,5 +15,6 @@ public class POCMoviesApp extends Application{
     @Override
     public void onCreate() {
         super.onCreate();
+        MovieModel.getInstance().startLoadingPopularMovies(getApplicationContext());
     }
 }
